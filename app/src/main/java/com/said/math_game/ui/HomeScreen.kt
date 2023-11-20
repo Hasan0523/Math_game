@@ -16,11 +16,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.said.math_game.R
 
 @Preview
 @Composable
@@ -35,7 +37,7 @@ fun HomeScreen(navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.White),
+            .background(colorResource(id = R.color.blue_back)),
         verticalArrangement = Arrangement.Center
     ) {
 
