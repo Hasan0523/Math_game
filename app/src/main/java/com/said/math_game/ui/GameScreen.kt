@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,6 +16,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.FavoriteBorder
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -93,27 +96,92 @@ fun GameScreen(navController: NavHostController) {
         }
         Row(
             Modifier
-                .background(color = Color.Blue, shape = RoundedCornerShape(16.dp))
-                .padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                .background(color = Color.Blue, shape = RoundedCornerShape(24.dp))
+                .padding(8.dp), verticalAlignment = Alignment.CenterVertically
+        ) {
             Text(
                 text = score.value.toString(),
                 modifier = Modifier
-                    .background(Color.Green, shape = RoundedCornerShape(16.dp))
+                    .background(Color.Green, shape = RoundedCornerShape(60.dp))
                     .padding(12.dp),
-                fontSize = 22.sp,
+                fontSize = 18.sp,
                 color = Color.White
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = savol.value.var1.toString(), color = Color.White, fontSize = 22.sp)
             Spacer(modifier = Modifier.width(8.dp))
-            Icon(imageVector = Icons.Rounded.FavoriteBorder, contentDescription = "", tint = Color.White)
+            Icon(
+                painterResource(id = R.drawable.check_box_icon),
+                contentDescription = "",
+                tint = Color.White
+            )
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = savol.value.var2.toString(), color = Color.White, fontSize = 22.sp)
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = "=", color = Color.White, fontSize = 22.sp)
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = savol.value.natija.toString(), color = Color.White, fontSize = 22.sp)
+
         }
 
+
+
+
+        Row() {
+            Button(
+                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.white)),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
+                onClick = { }) {
+                Image(
+                    painter = painterResource(id = R.drawable.minus_img),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f),
+                    contentDescription = ""
+                )
+            }
+
+            Button(
+                 modifier = Modifier.fillMaxWidth()
+                     .weight(1f)
+                     .padding(10.dp),
+                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.white)),
+                onClick = { /*TODO*/ }) {
+                Image(
+                    painter = painterResource(id = R.drawable.plus_img),
+                    contentDescription = ""
+                )
+            }
+        }
+
+
+
+
+
+
+        Row() {
+            Button( modifier = Modifier.fillMaxWidth()
+                .weight(1f),
+
+                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.white)),
+                onClick = { /*TODO*/ }) {
+                Image(painter = painterResource(id = R.drawable.boluv_img), contentDescription = "")
+            }
+
+
+            Button( modifier = Modifier.fillMaxWidth()
+                .weight(1f),
+
+
+                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.white)),
+                onClick = { /*TODO*/ }) {
+                Image(
+                    painter = painterResource(id = R.drawable.kopaytiruv_img),
+                    contentDescription = ""
+                )
+            }
+        }
     }
 }
